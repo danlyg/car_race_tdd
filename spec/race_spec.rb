@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe Race do
-  let(:race) { Race.new }
+  let(:race) { Race.new(Car.new, Car.new) }
 
   describe 'Methods' do
     describe '#initialize' do
@@ -17,22 +17,29 @@ RSpec.describe Race do
 
     describe '#winner' do
       it 'returns the winner' do
-        expect(race.winner).to be_a Car
+        expect(race.winner).to be_a String
       end
 
-      it 'is not the loser' do
-        expect(race.winner).not_to eq race.loser
-      end
+      # it 'is not the loser' do
+      #   expect(race.winner).not_to eq race.loser
+      # end
     end
 
     describe '#loser' do
       it 'returns the loser' do
-        expect(race.loser).to be_a Car
+        expect(race.loser).to be_a String
       end
 
-      it 'is no the winner' do
-        expect(race.loser).not_to eq race.winner
-      end
+      # it 'is not the winner' do
+      #   expect(race.loser).not_to eq race.winner
+      # end
     end
+
+    # describe "#tie" do
+    #   it 'is tie' do
+    #     expect(race.winner).to be_a String
+    #   end
+    # end
+
   end
 end
